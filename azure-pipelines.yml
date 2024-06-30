@@ -7,7 +7,7 @@ pool:
 variables:
   subscription:  Azure subscription 1(b19338e5-368e-4f1d-b894-d5bdfe7a3cf1)
   resourceGroup: resourcegroup-tfstate
-  storageAccount: terraformtfstateskip
+  storageAccount: terraformtfstateskips
   container: tfstate
   tfstateFile: terraform.tfstate
   anyTfChanges: false
@@ -25,7 +25,7 @@ steps:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/skip-step'
-    backendServiceArm: '$(subscription)'
+    backendServiceArm: 'Azure subscription 1(b19338e5-368e-4f1d-b894-d5bdfe7a3cf1)'
     backendAzureRmResourceGroupName: '$(resourceGroup)'
     backendAzureRmStorageAccountName: '$(storageAccount)'
     backendAzureRmContainerName: '$(container)'
@@ -69,4 +69,4 @@ steps:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/skip-step'
     commandOptions: 'tfplan'
-    environmentServiceNameAzureRM: '$(subscription)'
+    environmentServiceNameAzureRM: 'Azure subscription 1(b19338e5-368e-4f1d-b894-d5bdfe7a3cf1)'
